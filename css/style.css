@@ -1,0 +1,230 @@
+/* Create Default color name(based on category) */
+:root {
+    --primary: #b6895b;
+    --bg: #010101;
+}
+
+/* Set all selector */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: #fff;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    background-color: rgba(1, 1, 1, 0.8);
+    border-bottom: 1px solid #271806;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    font-style: italic;
+}
+
+.navbar .navbar-logo span {
+    color: var(--primary);
+}
+
+/* Navbar nav */
+.navbar .navbar-nav a {
+    color: #fff;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+    color: var(--primary)
+}
+
+/* Create underline under navbar text */
+.navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--primary);
+    /* Hide the underline with scaleX = 0 */
+    transform: scaleX(0);
+    transition: 0.3s linear;
+}
+
+/* Show the hidden underline on navbar when cursor hover the navbar text */
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+/* Navbar extra */
+.navbar .navbar-extra a {
+    color: #fff;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0 1rem;
+}
+
+.navbar .navbar-extra a:hover {
+    color: var(--primary)
+}
+
+/* Create underline under navbar text */
+.navbar .navbar-extra a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--primary);
+    /* Hide the underline with scaleX = 0 */
+    transform: scaleX(0);
+    transition: 0.3s linear;
+}
+
+/* Show the hidden underline on navbar when cursor hover the navbar text */
+.navbar .navbar-extra a:hover::after {
+    transform: scaleX(0.9);
+}
+
+
+
+
+/* MEDIA QUERIES */
+
+/* Laptop */
+@media (max-width: 1366px) {
+    html {
+        font-size: 75%;
+    }
+
+    #hamburger-menu {
+        display: none;
+    }
+}
+
+/* Tablet */
+@media (max-width: 834px) {
+    html {
+        font-size: 62.5%;
+    }
+
+    #hamburger-menu {
+        display: inline-block;
+    }
+
+    /* Set up Navbar-nav is hidden if hamburger button appear */
+    .navbar .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: var(--primary);
+        width: 30rem;
+        height: 100vh;
+        transition: 0.5s;
+    }
+    
+    .navbar .navbar-nav.active {
+        right: 0;
+    }
+
+    .navbar .navbar-nav a {
+        color: var(--bg);
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 3rem;
+    }
+
+    .navbar .navbar-nav a:hover {
+        color: #fff;
+    }
+
+    /* Create underline under navbar text */
+    .navbar .navbar-nav a::after {
+        content: '';
+        display: block;
+        padding-bottom: 0.5rem;
+        border-bottom: 0.3rem solid black;
+        /* Hide the underline with scaleX = 0 */
+        transform: scaleX(0);
+        transform-origin: 0 0;
+        transition: 0.3s linear;
+    }
+
+    /* Show the hidden underline on navbar when cursor hover the navbar text */
+    .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.5);
+    }
+
+}
+
+/* Mobile Phone */
+@media (max-width: 450px) {
+    html {
+        font-size: 75%;
+    }
+
+    #hamburger-menu {
+        display: inline-block;
+    }
+
+    /* Set up Navbar-nav is hidden if hamburger button appear */
+    .navbar .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: var(--primary);
+        width: 13rem;
+        height: 100vh;
+        transition: 0.5s;
+    }
+    
+    .navbar .navbar-nav.active {
+        right: 0;
+    }
+
+    .navbar .navbar-nav a {
+        color: var(--bg);
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a:hover {
+        color: #fff;
+    }
+
+    /* Create underline under navbar text */
+    .navbar .navbar-nav a::after {
+        content: '';
+        display: block;
+        padding-bottom: 0.5rem;
+        border-bottom: 0.3rem solid black;
+        /* Hide the underline with scaleX = 0 */
+        transform: scaleX(0);
+        transform-origin: 0 0;
+        transition: 0.3s linear;
+    }
+
+    /* Show the hidden underline on navbar when cursor hover the navbar text */
+    .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.5);
+    }
+}
