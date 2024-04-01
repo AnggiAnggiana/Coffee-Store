@@ -18,7 +18,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg);
     color: #fff;
-    min-height: 2000px;
+    min-height: 3000px;
 }
 
 /* Navbar */
@@ -115,13 +115,17 @@ body {
     background-position: center;
 }
 
-.hero .content {
+/* .hero .content {
     padding: 2rem 4%;
     max-width: 37rem;
     margin-top: -240px;
+} */
+
+.hero .content span {
+    color: var(--primary);
 }
 
-.hero .content h1 {
+/* .hero .content h1 {
     font-size: 3em;
     color: #fff;
     text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
@@ -145,7 +149,7 @@ body {
     background-color: var(--primary);
     border-radius: 0.5rem;
     box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
-}
+} */
 
 
 /* Make a gradiation from the coffee picture into the bottom */
@@ -160,6 +164,140 @@ body {
 }
 
 
+/* ABOUT US SECTION */
+.about, .menu, .contact {
+    padding: 9rem 7% 1.4rem;
+}
+
+.about h2, .menu h2, .contact h2 {
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 8rem;
+}
+
+.about h2 span, .menu h2 span, .contact h2 span {
+    color: var(--primary)
+}
+
+.about .row {
+    display: flex;
+}
+
+.about .row .about-img {
+    flex: 1 1 45rem;
+}
+
+.about .row .about-img img {
+    width: 100%;
+}
+
+.about .row .content {
+    flex: 1 1 35rem;
+    padding: 0 1rem;
+}
+
+.about .row .content h4 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.about .row .content p {
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: 100;
+    line-height: 1.6;
+}
+
+/* MENU Section */
+.menu h2 {
+    margin-bottom: 1rem;
+}
+
+.menu p {
+    max-width: 30rem;
+    text-align: center;
+    margin: auto;
+    font-weight: 300;
+    line-height: 2rem;
+    margin-bottom: 7rem;
+}
+
+.menu .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu .row .menu-card {
+    text-align: center;
+}
+
+.menu .row .menu-card img {
+    max-width: 60rem;
+    max-height: 20rem;
+    border-radius: 50%;
+    width: 80%;
+}
+
+.menu .row .menu-card .menu-card-title {
+    margin: 1rem auto 0.3rem;
+}
+
+/* CONTACT Section */
+.contact .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    max-height: 150rem;
+    background-color: #1b1b1b;
+}
+
+.contact .row .map {
+    flex: 1 1 45rem;
+    width: 100%;
+    height: 30rem;
+    object-fit: cover;
+}
+
+.contact .row form {
+    flex: 1 1 2rem;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.contact .row form h2 {
+    margin-bottom: 3rem;
+    color: var(--primary);
+}
+
+.contact .row form .input-group {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+    background-color: var(--bg);
+    border: 1px solid #eee;
+    padding-left: 2rem;
+}
+
+.contact .row form .input-group input {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.7rem;
+    background: none;
+    color: #fff;
+}
+
+.contact .row form .btn {
+    margin-top: 2rem;
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: var(--primary);
+    cursor: pointer;
+}
+
+
 /* MEDIA QUERIES */
 
 /* Laptop */
@@ -170,6 +308,39 @@ body {
 
     #hamburger-menu {
         display: none;
+    }
+
+    /* HERO SECTION */
+    .hero .content {
+        padding: 2rem 4%;
+        max-width: 37rem;
+        margin-top: -240px;
+    }
+
+    .hero .content h1 {
+        font-size: 3em;
+        color: #fff;
+        text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+        line-height: 1.2;
+    }
+    
+    .hero .content p {
+        font-size: 1.3rem;
+        margin-top: 1rem;
+        line-height: 1.4;
+        font-weight: 100;
+        text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    }
+
+    .hero .content .buy_now {
+        margin-top: 1rem;
+        display: inline-block;
+        padding: 1rem 3rem;
+        font-size: 1.4rem;
+        color: #fff;
+        background-color: var(--primary);
+        border-radius: 0.5rem;
+        box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
     }
 }
 
@@ -227,6 +398,45 @@ body {
         transform: scaleX(0.5);
     }
 
+
+    /* HERO SECTION */
+    .hero .content {
+        padding: 2rem 4%;
+        max-width: 37rem;
+        margin-top: -240px;
+        backdrop-filter: blur(2px);
+    }
+
+    .hero .content h1 {
+        font-size: 3em;
+        color: #fff;
+        text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+        line-height: 1.2;
+    }
+    
+    .hero .content p {
+        font-size: 1.3rem;
+        margin-top: 1rem;
+        line-height: 1.4;
+        font-weight: 100;
+        text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    }
+    
+    .hero .content .buy_now {
+        margin-top: 1rem;
+        display: inline-block;
+        padding: 1rem 3rem;
+        font-size: 1.4rem;
+        color: #fff;
+        background-color: var(--primary);
+        border-radius: 0.5rem;
+        box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    }
+
+    /* CONTACT US Section */
+    .contact .row {
+        flex-wrap: wrap;
+    }
 }
 
 /* Mobile Phone */
@@ -281,5 +491,47 @@ body {
     /* Show the hidden underline on navbar when cursor hover the navbar text */
     .navbar .navbar-nav a:hover::after {
         transform: scaleX(0.5);
+    }
+
+    /* HERO SECTION */
+    .hero .content {
+        padding: 2rem 4%;
+        max-width: 37rem;
+        margin-top: -240px;
+        backdrop-filter: blur(2px);
+    }
+
+    .hero .content h1 {
+        font-size: 2em;
+        color: #fff;
+        text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+        line-height: 1.2;
+    }
+    
+    .hero .content p {
+        font-size: 1rem;
+        margin-top: 1rem;
+        line-height: 1.4;
+        font-weight: 100;
+        text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    }
+    
+    .hero .content .buy_now {
+        margin-top: 1rem;
+        display: inline-block;
+        padding: 1rem 3rem;
+        font-size: 1.4rem;
+        color: #fff;
+        background-color: var(--primary);
+        border-radius: 0.5rem;
+        box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    }
+
+    .about .row {
+        flex-wrap: wrap;
+    }
+
+    .about .row .content {
+        padding: 0;
     }
 }
