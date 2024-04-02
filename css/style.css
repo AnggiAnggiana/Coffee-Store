@@ -14,11 +14,16 @@
     text-decoration: none;
 }
 
+/* Make the scroll on the web turns smoother than before */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg);
     color: #fff;
-    min-height: 3000px;
+    /* min-height: 4000px; */
 }
 
 /* Navbar */
@@ -244,6 +249,10 @@ body {
 }
 
 /* CONTACT Section */
+.contact {
+    margin-bottom: 7rem;
+}
+
 .contact .row {
     display: flex;
     flex-wrap: wrap;
@@ -266,7 +275,8 @@ body {
 }
 
 .contact .row form h2 {
-    margin-bottom: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
     color: var(--primary);
 }
 
@@ -295,6 +305,63 @@ body {
     color: #fff;
     background-color: var(--primary);
     cursor: pointer;
+}
+
+/* FOOTER SOCIAL Section */
+footer {
+    background-color: var(--primary);
+    text-align: center;
+    padding: 1rem 0 2rem;
+    margin-top: 3rem;
+}
+
+footer .socials {
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+footer .socials h3 {
+    margin-bottom: 1rem;
+    color: var(--bg);
+}
+
+footer .socials a {
+    color: #fff;
+    margin: 1rem;
+}
+
+footer .socials a.facebook:hover {
+    color: rgba(12, 150, 214, 0.801);
+}
+
+footer .socials a.instagram:hover {
+    color: rgb(196, 11, 97);
+}
+
+
+footer .links a {
+    color: var(--bg);
+    text-decoration: underline;
+    margin: 1rem;
+    font-size: 1.2rem;
+}
+
+footer .links a:hover {
+    color: #fff;
+}
+
+footer .credit {
+    margin-top: 1rem;
+}
+
+footer .credit p {
+    color: var(--bg);
+}
+
+footer .credit p a {
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
 }
 
 
