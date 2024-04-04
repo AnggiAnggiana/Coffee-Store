@@ -35,3 +35,20 @@ document.addEventListener('click', function (e) {
         searchForm.classList.remove('active')
     }
 })
+
+// Toggle class active (Shopping Cart)
+const shoppingCart = document.querySelector('.shopping-cart')
+
+document.querySelector('#shopping-cart').onclick = (e) => {
+    shoppingCart.classList.toggle('active');
+    e.preventDefault();
+}
+
+// Close ShoppingCart when user click outside ShoppingCart area
+const closeCart = document.querySelector('#shopping-cart');
+
+document.addEventListener('click', (e) => {
+    if (!closeCart.contains(e.target) && !shoppingCart.contains(e.target)) {
+        shoppingCart.classList.remove('active')
+    }
+})

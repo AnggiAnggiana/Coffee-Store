@@ -145,6 +145,54 @@ body {
     color: var(--bg);
 }
 
+/* Shopping Cart */
+.navbar .shopping-cart {
+    position: absolute;
+    top: 100%;
+    right: -100%; /*ubah menjadi -100% nanti*/
+    background-color: #fff;
+    width: 35rem;
+    height: 100vh;
+    padding: 0 1.5rem;
+    color: var(--bg);
+    transition: 0.5s;
+}
+
+.navbar .shopping-cart.active {
+    right: 0;
+}
+
+.navbar .shopping-cart .cart-items {
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed rgba(73, 71, 71, 0.829);
+    /* Change into position = relative to set the trash/delete button customize */
+    position: relative;
+}
+
+.navbar .shopping-cart .cart-items img {
+    width: 7rem;
+    height: 7rem;
+}
+
+.navbar .shopping-cart .cart-items .item-details h3 {
+    font-size: 1.6rem;
+    padding-bottom: 0.5rem;
+}
+
+.navbar .shopping-cart .cart-items .remove-item {
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.navbar .shopping-cart .cart-items .remove-item:hover {
+    color: rgb(139, 5, 5);
+}
+
 
 /* Section HERO */
 .hero {
@@ -273,6 +321,9 @@ body {
 .menu .row .menu-card {
     text-align: center;
     margin-bottom: 6rem;
+    border: 1px solid var(--primary);
+    padding: 2rem;
+    margin-left: 2rem;
 }
 
 .menu .row .menu-card img {
@@ -287,15 +338,39 @@ body {
 }
 
 .menu .row .menu-card .menu-card-price {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
-.menu .row .menu-card a {
+.menu .row .menu-card .shop-icon {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    margin-left: 8rem;
+}
+
+.menu .row .menu-card .shop-icon a {
     color: var(--primary);
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid #666;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu .row .menu-card .shop-icon a:hover {
+    background-color: var(--primary);
+    color: var(--bg);
 }
 
 .menu .row .menu-card .product-stars {
-    margin-top: 1rem;
+    font-size: 3rem;
+    color: var(--primary);
+}
+
+.menu .row .menu-card .product-stars .bintang {
+    fill: rgb(219, 219, 9);
 }
 
 /* CONTACT Section */
@@ -613,6 +688,16 @@ footer .credit p a {
     .navbar .search-form {
         width: 90%;
         right: 2rem;
+    }
+
+    .navbar .shopping-cart.active {
+        right: -30%;
+    }
+
+    .navbar .shopping-cart .cart-items .remove-item {
+        position: absolute;
+        right: 10rem;
+        cursor: pointer;
     }
 
     /* HERO SECTION */
