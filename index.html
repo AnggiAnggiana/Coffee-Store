@@ -13,6 +13,12 @@
         <!-- Feather Icon (Installation) -->
         <script src="https://unpkg.com/feather-icons"></script>
 
+        <!-- Alpine JS (Javascript Framework) -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+        <!-- App.js (file) -->
+        <script src="src/app.js"></script>
+
         <!-- Styling CSS for Index.html -->
         <link rel="stylesheet" href="css/style.css" />
     </head>
@@ -98,101 +104,121 @@
         <!-- ABOUT Section End -->
 
         <!-- MENU Section Start -->
-        <section id="menu" class="menu">
+        <section id="menu" class="menu" id="menu" x-data="menu">
             <h2><span>Coffee </span>Menu</h2>
             <p>Find the best coffee choices with us to bring the peace on your day right now.</p>
 
             <div class="row">
-                <div class="menu-card">
-                    <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
-                    <h3 class="menu-card-title">- Latte -</h3>
-                    <p class="menu-card-price">Rp.20.000</p>
-                    <div class="shop-icon">
-                        <a href="#"><i data-feather="shopping-cart"></i></a>
+                <template x-for="(item, index) in items" x-key="index">
+                    <div class="menu-card">
+                        <div class="product-image">
+                            <img :src="`img/menu/${item.img}`" :alt="item.name" class="menu-card-img">
+                        </div>
+                        <h3 class="menu-card-title" x-text="item.name"></h3>
+                        <p class="menu-card-price" x-text="rupiah(item.price)"></p>
+                        <div class="product-icon">
+                            <!-- <a href="#"><i data-feather="shopping-cart"></i></a> -->
+                            <a href="#">
+                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <use href="img/feather-sprite.svg#shopping-cart" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="product-stars">
+                            <!-- <i data-feather="star" class="bintang"></i> -->
+                            <svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <use href="img/feather-sprite.svg#star" />
+                            </svg>
+                            <svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <use href="img/feather-sprite.svg#star" />
+                            </svg>
+                            <svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <use href="img/feather-sprite.svg#star" />
+                            </svg>
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <use href="img/feather-sprite.svg#star" />
+                            </svg>
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <use href="img/feather-sprite.svg#star" />
+                            </svg>
+                        </div>
                     </div>
-                    <div class="product-stars">
-                        <i data-feather="star" class="bintang"></i>
-                        <i data-feather="star" class="bintang"></i>
-                        <i data-feather="star" class="bintang"></i>
-                        <i data-feather="star" class="bintang"></i>
-                        <i data-feather="star" class="bintang"></i>
+                    <!-- <div class="menu-card">
+                        <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
+                        <h3 class="menu-card-title">- Latte -</h3>
+                        <p class="menu-card-price">Rp.20.000</p>
+                        <div class="shop-icon">
+                            <a href="#"><i data-feather="shopping-cart"></i></a>
+                        </div>
+                        <div class="product-stars">
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="menu-card">
-                    <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
-                    <h3 class="menu-card-title">- Latte -</h3>
-                    <p class="menu-card-price">Rp.20.000</p>
-                    <div class="shop-icon">
-                        <a href="#"><i data-feather="shopping-cart"></i></a>
+                    <div class="menu-card">
+                        <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
+                        <h3 class="menu-card-title">- Latte -</h3>
+                        <p class="menu-card-price">Rp.20.000</p>
+                        <div class="shop-icon">
+                            <a href="#"><i data-feather="shopping-cart"></i></a>
+                        </div>
+                        <div class="product-stars">
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                        </div>
                     </div>
-                    <div class="product-stars">
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
+                    <div class="menu-card">
+                        <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
+                        <h3 class="menu-card-title">- Latte -</h3>
+                        <p class="menu-card-price">Rp.20.000</p>
+                        <div class="shop-icon">
+                            <a href="#"><i data-feather="shopping-cart"></i></a>
+                        </div>
+                        <div class="product-stars">
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="menu-card">
-                    <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
-                    <h3 class="menu-card-title">- Latte -</h3>
-                    <p class="menu-card-price">Rp.20.000</p>
-                    <div class="shop-icon">
-                        <a href="#"><i data-feather="shopping-cart"></i></a>
+                    <div class="menu-card">
+                        <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
+                        <h3 class="menu-card-title">- Latte -</h3>
+                        <p class="menu-card-price">Rp.20.000</p>
+                        <div class="shop-icon">
+                            <a href="#"><i data-feather="shopping-cart"></i></a>
+                        </div>
+                        <div class="product-stars">
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                        </div>
                     </div>
-                    <div class="product-stars">
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
-                    <h3 class="menu-card-title">- Latte -</h3>
-                    <p class="menu-card-price">Rp.20.000</p>
-                    <div class="shop-icon">
-                        <a href="#"><i data-feather="shopping-cart"></i></a>
-                    </div>
-                    <div class="product-stars">
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
-                    <h3 class="menu-card-title">- Latte -</h3>
-                    <p class="menu-card-price">Rp.20.000</p>
-                    <div class="shop-icon">
-                        <a href="#"><i data-feather="shopping-cart"></i></a>
-                    </div>
-                    <div class="product-stars">
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
-                    <h3 class="menu-card-title">- Latte -</h3>
-                    <p class="menu-card-price">Rp.20.000</p>
-                    <div class="shop-icon">
-                        <a href="#"><i data-feather="shopping-cart"></i></a>
-                    </div>
-                    <div class="product-stars">
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                        <i data-feather="star"></i>
-                    </div>
-                </div>
+                    <div class="menu-card">
+                        <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
+                        <h3 class="menu-card-title">- Latte -</h3>
+                        <p class="menu-card-price">Rp.20.000</p>
+                        <div class="shop-icon">
+                            <a href="#"><i data-feather="shopping-cart"></i></a>
+                        </div>
+                        <div class="product-stars">
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                            <i data-feather="star"></i>
+                        </div>
+                    </div> -->
+                </template>
             </div>
         </section>
         <!-- MENU Section End -->

@@ -326,7 +326,7 @@ body {
     margin-left: 2rem;
 }
 
-.menu .row .menu-card img {
+.menu .row .menu-card .product-image img {
     max-width: 60rem;
     max-height: 20rem;
     border-radius: 50%;
@@ -341,14 +341,14 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.menu .row .menu-card .shop-icon {
+.menu .row .menu-card .product-icon {
     display: block;
     justify-content: center;
     text-align: center;
     margin-left: 8rem;
 }
 
-.menu .row .menu-card .shop-icon a {
+.menu .row .menu-card .product-icon a {
     color: var(--primary);
     width: 4rem;
     height: 4rem;
@@ -359,7 +359,7 @@ body {
     align-items: center;
 }
 
-.menu .row .menu-card .shop-icon a:hover {
+.menu .row .menu-card .product-icon a:hover {
     background-color: var(--primary);
     color: var(--bg);
 }
