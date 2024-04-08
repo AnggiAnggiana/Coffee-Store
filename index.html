@@ -25,7 +25,7 @@
     <body>
 
         <!-- Navbar Start -->
-        <nav class="navbar">
+        <nav class="navbar" x-data>
             <a href="#" class="navbar-logo"><span>Coffee</span>Break</a>
 
             <div class="navbar-nav">
@@ -37,7 +37,7 @@
 
             <div class="navbar-extra">
                 <a href="#" id="searchButton"><i data-feather="search"></i></a>
-                <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+                <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i><span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span></a>
                 <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
             </div>
 
@@ -50,26 +50,22 @@
 
             <!-- Shopping Cart Button Start -->
             <div class="shopping-cart">
-                <div class="cart-items">
-                    <img src="img/menu/latte-1.jpg" alt="product 1">
-                    <div class="item-details">
-                        <h3>Product 1</h3>
-                        <div class="item-price">
-                            Rp.25.000
+                <template x-for="(item, index) in $store.cart.items" x-keys="index">
+                    <div class="cart-items">
+                        <img :src="`img/menu/${item.img}`" :alt="item.name">
+                        <div class="item-details">
+                            <h3 x-text="item.name"></h3>
+                            <div class="item-price">
+                                <span x-text="rupiah(item.price)"></span> &times;
+                                <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+                                <span x-text="item.quantity"></span>
+                                <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+                                <span x-text="rupiah(item.totalPrice)"></span>
+                            </div>
                         </div>
+                        <i data-feather="trash-2" class="remove-item"></i>
                     </div>
-                    <i data-feather="trash-2" class="remove-item"></i>
-                </div>
-                <div class="cart-items">
-                    <img src="img/menu/latte-1.jpg" alt="product 1">
-                    <div class="item-details">
-                        <h3>Product 1</h3>
-                        <div class="item-price">
-                            Rp.25.000
-                        </div>
-                    </div>
-                    <i data-feather="trash-2" class="remove-item"></i>
-                </div>
+                </template>
             </div>
             <!-- Shopping Cart Button End -->
 
@@ -118,7 +114,7 @@
                         <p class="menu-card-price" x-text="rupiah(item.price)"></p>
                         <div class="product-icon">
                             <!-- <a href="#"><i data-feather="shopping-cart"></i></a> -->
-                            <a href="#">
+                            <a href="#" @click.prevent="$store.cart.add(item)">
                                 <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <use href="img/feather-sprite.svg#shopping-cart" />
                                 </svg>

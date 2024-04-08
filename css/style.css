@@ -89,7 +89,7 @@ body {
 }
 
 .navbar .navbar-extra a:hover {
-    color: var(--primary)
+    color: var(--primary);
 }
 
 /* Create underline under navbar text */
@@ -107,6 +107,25 @@ body {
 .navbar .navbar-extra a:hover::after {
     transform: scaleX(0.9);
 }
+
+.navbar .navbar-extra #shopping-cart {
+    position: relative;
+}
+
+.navbar .navbar-extra #shopping-cart .quantity-badge {
+    display: inline-block;
+    padding: 1px 5px;
+    background-color: red;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 0;
+    right: -10px;
+}
+
+/* .navbar .navbar-extra #shopping-cart .quantity-badge:hover {
+    color: #fff;
+} */
 
 /* Navbar Search Form */
 .navbar .search-form {
@@ -174,13 +193,24 @@ body {
 }
 
 .navbar .shopping-cart .cart-items img {
-    width: 7rem;
-    height: 7rem;
+    width: 4rem;
+    height: 4rem;
 }
 
 .navbar .shopping-cart .cart-items .item-details h3 {
-    font-size: 1.6rem;
-    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.navbar .shopping-cart .cart-items .item-details .item-price #remove,
+.navbar .shopping-cart .cart-items .item-details .item-price #add {
+    display: inline-block;
+    padding: 2px 5px;
+    cursor: pointer;
+    margin: 0 8px;
+    background-color: rgb(97, 10, 97);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .navbar .shopping-cart .cart-items .remove-item {
