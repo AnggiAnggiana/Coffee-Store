@@ -64,8 +64,41 @@
                             </div>
                         </div>
                         <i data-feather="trash-2" class="remove-item"></i>
+                        <div class="remove-item">
+                            <a href="#" @click.prevent="$store.cart.delete(item.id)">
+                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <use href="img/feather-sprite.svg#trash-2" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </template>
+                <h4 x-show="!$store.cart.items.length" class="emptyCart">There is no product added yet</h4>
+                <h4 x-show="$store.cart.items.length" class="totalCart">Total Price : <span x-text="rupiah($store.cart.totalPrice)"></span> </h4>
+
+                <!-- Checkout Form -->
+                <div class="form-container" x-show="$store.cart.items.length">
+                    <form action="" id="checkoutForm">
+                        <h5>Customer Information</h5>
+
+                        <label for="name">
+                            <span>Name</span>
+                            <input type="text" name="name" id="name">
+                        </label>
+                        <label for="phone-number">
+                            <span>Phone Number</span>
+                            <input type="number" name="phone-number" id="phone-number" autocomplete="off">
+                        </label>
+                        <label for="note">
+                            <span>Catatan</span>
+                            <input type="text" name="note" id="note">
+                        </label>
+                    </form>
+
+                    <div class="checkout-class">
+                        <button class="checkout-button" type="submit" id="checkout-button">Beli</button>
+                    </div>
+                </div>
             </div>
             <!-- Shopping Cart Button End -->
 

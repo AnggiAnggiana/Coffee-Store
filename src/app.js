@@ -62,6 +62,15 @@ document.addEventListener('alpine:init', () => {
                     }
                 })
             }
+        },
+        // Delete product with trash icon
+        delete(id) {
+            const deleteItemIndex = this.items.findIndex((item) => item.id === id);
+            if (deleteItemIndex !== -1) {
+                const deletedItems = this.items.splice(deleteItemIndex, 1) [0];
+                this.quantity -= deletedItems.quantity;
+                this.totalPrice -= deletedItems.totalPrice;
+            }
         }
     })
 });
