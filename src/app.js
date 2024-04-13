@@ -151,7 +151,7 @@ checkoutButton.addEventListener('click', (e) => {
     console.log(objectData);
     // To send message which consists of Customer identity, product id, and the totalPrice of order.
     const message = formatMessage(objectData);
-    window.open('http://wa.me/6285942139054?text=' + encodeURIComponent(message))
+    window.open('http://wa.me/62xxxxxxxxx?text=' + encodeURIComponent(message))
 })
 
 // Format for order message from customer to seller
