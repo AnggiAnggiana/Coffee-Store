@@ -17,7 +17,7 @@
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
         <!-- App.js (file) -->
-        <script src="src/app.js"></script>
+        <!-- <script src="src/app.js"></script> -->
 
         <!-- Styling CSS for Index.html -->
         <link rel="stylesheet" href="css/style.css" />
@@ -79,15 +79,18 @@
                 <!-- Checkout Form -->
                 <div class="form-container" x-show="$store.cart.items.length">
                     <form action="" id="checkoutForm">
+                        <!-- Get data (item & totalPrice) from Javascript  -->
+                        <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)">
+                        <input type="hidden" name="totalPrice" x-model="JSON.stringify($store.cart.totalPrice)">
                         <h5>Customer Information</h5>
 
                         <label for="name">
                             <span>Name</span>
                             <input type="text" name="name" id="name">
                         </label>
-                        <label for="phone-number">
+                        <label for="phone">
                             <span>Phone Number</span>
-                            <input type="number" name="phone-number" id="phone-number" autocomplete="off">
+                            <input type="number" name="phone" id="phone" autocomplete="off">
                         </label>
                         <label for="note">
                             <span>Catatan</span>
@@ -96,7 +99,7 @@
                     </form>
 
                     <div class="checkout-class">
-                        <button class="checkout-button" type="submit" id="checkout-button">Beli</button>
+                        <button class="checkout-button disabled" type="submit" id="checkout-button">Beli</button>
                     </div>
                 </div>
             </div>
@@ -172,81 +175,6 @@
                             </svg>
                         </div>
                     </div>
-                    <!-- <div class="menu-card">
-                        <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
-                        <h3 class="menu-card-title">- Latte -</h3>
-                        <p class="menu-card-price">Rp.20.000</p>
-                        <div class="shop-icon">
-                            <a href="#"><i data-feather="shopping-cart"></i></a>
-                        </div>
-                        <div class="product-stars">
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                        </div>
-                    </div>
-                    <div class="menu-card">
-                        <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
-                        <h3 class="menu-card-title">- Latte -</h3>
-                        <p class="menu-card-price">Rp.20.000</p>
-                        <div class="shop-icon">
-                            <a href="#"><i data-feather="shopping-cart"></i></a>
-                        </div>
-                        <div class="product-stars">
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                        </div>
-                    </div>
-                    <div class="menu-card">
-                        <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
-                        <h3 class="menu-card-title">- Latte -</h3>
-                        <p class="menu-card-price">Rp.20.000</p>
-                        <div class="shop-icon">
-                            <a href="#"><i data-feather="shopping-cart"></i></a>
-                        </div>
-                        <div class="product-stars">
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                        </div>
-                    </div>
-                    <div class="menu-card">
-                        <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
-                        <h3 class="menu-card-title">- Latte -</h3>
-                        <p class="menu-card-price">Rp.20.000</p>
-                        <div class="shop-icon">
-                            <a href="#"><i data-feather="shopping-cart"></i></a>
-                        </div>
-                        <div class="product-stars">
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                        </div>
-                    </div>
-                    <div class="menu-card">
-                        <img src="img/menu/latte-1.jpg" alt="latte" class="menu-card-img">
-                        <h3 class="menu-card-title">- Latte -</h3>
-                        <p class="menu-card-price">Rp.20.000</p>
-                        <div class="shop-icon">
-                            <a href="#"><i data-feather="shopping-cart"></i></a>
-                        </div>
-                        <div class="product-stars">
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                            <i data-feather="star"></i>
-                        </div>
-                    </div> -->
                 </template>
             </div>
         </section>
@@ -314,5 +242,8 @@
 
         <!-- Javascript for Hamburger button -->
         <script src="js/hamburger-button.js"></script>
+
+        <!-- App.js (file) -->
+        <script src="src/app.js"></script>
     </body>
 </html>

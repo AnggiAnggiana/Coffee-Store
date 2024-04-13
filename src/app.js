@@ -84,3 +84,91 @@ const rupiah = (number) => {
         minimumFractionDigits: 0,
     }).format(number);
 };
+
+
+// Customer Form Validation
+// VERSI KE 1
+
+// Make the button become disabled
+const checkoutButton = document.querySelector('.checkout-button')
+checkoutButton.disabled = true;
+
+// Make the button disabled as dynamic (disabled when the form empty/incomplete, then able if the form filled)
+const form = document.querySelector('#checkoutForm')
+
+form.addEventListener('keyup', () => {
+    for (let i = 0; i < form.elements.length; i++) {
+        if (form.elements[i].value.length !== 0) {
+            // checkoutButton.classList.remove('disabled');
+            checkoutButton.classList.add('disabled');
+        } else {
+            return false;
+        }
+    }
+    checkoutButton.disabled = false;
+    checkoutButton.classList.remove('disabled');
+})
+// -----------------------//
+
+
+// VERSI KE 2
+// Make the button become disabled
+// const checkoutButton = document.querySelector('.checkout-button')
+
+// Make the button disabled as dynamic (disabled when the form empty/incomplete, then able if the form filled)
+// const form = document.querySelector('#checkoutForm')
+
+// const checkInputs = () => {
+//     let allFilled = true;
+//     for (let i = 0; i < form.elements.length; i++) {
+//         if (form.elements[i].value.trim() === '') {
+//             allFilled = false;
+//             break;
+//         }
+//     }
+//     return allFilled;
+// };
+
+// Event listener for keyup on form inputs
+// form.addEventListener('keyup', () => {
+//     const allInputsField = checkInputs();
+//     if (allInputsField) {
+//         checkoutButton.disabled = false;
+//         checkoutButton.classList.remove('disabled');
+//     } else {
+//         checkoutButton.disabled = true;
+//         checkoutButton.classList.add('disabled');
+//     }
+// });
+
+
+// Send data (product/items & totalPrice) when checkout(beli) button is clicked
+checkoutButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const data = new URLSearchParams(formData);
+    const objectData = Object.fromEntries(data);
+    console.log(objectData);
+    // To send message which consists of Customer identity, product id, and the totalPrice of order.
+    const message = formatMessage(objectData);
+    window.open('http://wa.me/6285942139054?text=' + encodeURIComponent(message))
+})
+
+// Format for order message from customer to seller
+const formatMessage = (obj) => {
+    const items = JSON.parse(obj.items);
+    const orderList = items.map((item, index) => `${index + 1}. ${item.name} (${item.quantity} x ${rupiah(item.price)})`).join('\n');
+    const totalOrder = rupiah(obj.totalPrice);
+
+    return `--- Data Customer: ---
+    Nama: ${obj.name}
+    Nomor HP: ${obj.phone}
+    Catatan: "${obj.note}"
+
+--- Data Pesanan: ---
+    ${orderList}
+
+    Total: ${totalOrder}
+
+    ~ Terima Kasih ~`;
+};

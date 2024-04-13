@@ -254,15 +254,13 @@ body {
 }
 
 .navbar .shopping-cart .form-container form h5 {
-    font-size: 1rem;
+    font-size: 2rem;
     text-align: center;
 }
 
 .navbar .shopping-cart .form-container form label {
     display: flex;
-    /* justify-content: space-around; */
     justify-content: flex-start;
-    /* align-items: center; */
     margin: 1rem 0;
 }
 
@@ -296,6 +294,11 @@ body {
     cursor: pointer;
     width: 30%;
     border: solid 2px var(--primary);
+}
+
+.navbar .shopping-cart .form-container .checkout-button.disabled {
+    background-color: #999;
+    cursor: not-allowed;
 }
 
 /* Section HERO */
