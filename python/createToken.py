@@ -22,7 +22,7 @@ def create_transaction():
     snap = midtransclient.Snap(
         # Set to true if you want Production Environment (accept real transaction).
         is_production=False,
-        server_key='SB-Mid-server-6MIgjT7tgura-nz9BZnN0tSc'
+        server_key='YOUR_SECRET_ID_KEY'
     )
     
     # Build API parameter
