@@ -143,18 +143,46 @@ form.addEventListener('keyup', () => {
 
 
 // Send data (product/items & totalPrice) when checkout(beli) button is clicked
-checkoutButton.addEventListener('click', (e) => {
+checkoutButton.addEventListener('click', async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
-    const data = new URLSearchParams(formData);
-    const objectData = Object.fromEntries(data);
+    const objectData = {};
+    formData.forEach((value, key) => {
+        objectData[key] = value;
+    });
     console.log(objectData);
-    // To send message which consists of Customer identity, product id, and the totalPrice of order.
-    const message = formatMessage(objectData);
-    window.open('http://wa.me/6285942139054?text=' + encodeURIComponent(message))
-})
 
-// Format for order message from customer to seller
+    // Modify into JSON format
+    const requestData = {
+        ...objectData,
+        items: JSON.parse(objectData.items),
+    };
+
+    // To send message which consists of Customer identity, product id, and the totalPrice of order.
+    // const message = formatMessage(objectData);
+
+    // window.open('http://wa.me/xxxxxxxxxxxxx?text=' + encodeURIComponent(message))
+
+    // Getting transaction tokens with ajax/fetch
+    try {
+        // const response = await fetch('/create_transaction', {
+        const response = await fetch('http://localhost:5000/create_transaction', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestData),
+        });
+        const result = await response.json();
+        const token = result.transaction_token;
+        // console.log(token)
+        window.snap.pay(token);
+    } catch (error) {
+        console.log(error.message)
+    }
+});
+
+// Format for order message from customer to seller's social media (whatsapp used on this case)
 const formatMessage = (obj) => {
     const items = JSON.parse(obj.items);
     const orderList = items.map((item, index) => `${index + 1}. ${item.name} (${item.quantity} x ${rupiah(item.price)})`).join('\n');
